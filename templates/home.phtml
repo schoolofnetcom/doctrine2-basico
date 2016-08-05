@@ -1,0 +1,29 @@
+<?php include __DIR__ . '/header.html' ?>
+    <div class="container">
+        <div class="row">
+            <h2>POSTS DA SON</h2>
+            <div class="col-md-10">
+                <ul class="list-unstyled">
+                    <li>
+                        <?php foreach ($posts as $post): ?>
+                            <div class="jumbotron">
+                                <h1><?php echo $post->getTitle(); ?></h1>
+                                <p><?php echo substr($post->getContent(), 0, 20); ?>...</p>
+                                <p><a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group">
+                    <?php foreach ($categories as $category): ?>
+                        <li class="list-group-item">
+                            <a href="<?php echo "/?search={$category->getId()}";?>"><?php echo $category->getName(); ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php include __DIR__ . '/footer.html' ?>
